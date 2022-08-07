@@ -9,25 +9,15 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MovieFragment : Fragment() {
 
     private lateinit var viewModel: MovieViewModel
-    private lateinit var viewModelFactory: MovieViewModelFactory
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://movies-sample.herokuapp.com/api/")
-        .client(OkHttpClient())
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    private val api: MovieAPI = retrofit.create(MovieAPI::class.java)
-
-    private val service = MovieService(api)
-    private val repository = MovieRepository(service)
+    @Inject
+    lateinit var viewModelFactory: MovieViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,12 +27,16 @@ class MovieFragment : Fragment() {
 
         setupViewModel()
 
+        observeMovieList(view)
+
+        return view
+    }
+
+    private fun observeMovieList(view: View?) {
         viewModel.movieList.observe(this as LifecycleOwner) { movieList ->
             if (movieList.getOrNull() != null)
                 setupList(view, movieList.getOrNull()!!)
         }
-
-        return view
     }
 
     private fun setupList(
@@ -57,7 +51,6 @@ class MovieFragment : Fragment() {
     }
 
     private fun setupViewModel() {
-        viewModelFactory = MovieViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[MovieViewModel::class.java]
     }
 

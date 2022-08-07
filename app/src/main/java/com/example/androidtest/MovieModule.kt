@@ -1,0 +1,26 @@
+package com.example.androidtest
+
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.FragmentComponent
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+@Module
+@InstallIn(FragmentComponent::class)
+class MovieModule {
+
+    private val BASE_URL = "https://movies-sample.herokuapp.com/api/"
+
+    @Provides
+    fun movieAPI(retrofit: Retrofit): MovieAPI = retrofit.create(MovieAPI::class.java)
+
+    @Provides
+    fun retrofit(): Retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .client(OkHttpClient())
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+}
