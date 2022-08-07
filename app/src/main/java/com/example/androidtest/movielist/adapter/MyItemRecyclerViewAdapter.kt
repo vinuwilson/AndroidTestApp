@@ -1,11 +1,13 @@
-package com.example.androidtest
+package com.example.androidtest.movielist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidtest.movielist.model.Movie
 import com.example.androidtest.databinding.FragmentMovieBinding
+import com.example.androidtest.utils.loadImage
 
 class MyItemRecyclerViewAdapter(
     private val values: List<Movie>

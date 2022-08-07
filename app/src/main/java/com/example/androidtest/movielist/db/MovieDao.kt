@@ -1,6 +1,7 @@
-package com.example.androidtest
+package com.example.androidtest.movielist.db
 
 import androidx.room.*
+import com.example.androidtest.movielist.model.Movie
 
 @Dao
 interface MovieDao {

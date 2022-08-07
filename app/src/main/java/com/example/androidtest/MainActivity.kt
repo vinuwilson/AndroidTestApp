@@ -2,6 +2,7 @@ package com.example.androidtest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.androidtest.movielist.ui.MovieFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

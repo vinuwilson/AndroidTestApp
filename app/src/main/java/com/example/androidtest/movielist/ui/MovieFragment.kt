@@ -1,4 +1,4 @@
-package com.example.androidtest
+package com.example.androidtest.movielist.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,11 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.androidtest.R
+import com.example.androidtest.movielist.adapter.MyItemRecyclerViewAdapter
+import com.example.androidtest.movielist.model.Movie
+import com.example.androidtest.movielist.viewmodel.MovieViewModel
+import com.example.androidtest.movielist.viewmodel.MovieViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

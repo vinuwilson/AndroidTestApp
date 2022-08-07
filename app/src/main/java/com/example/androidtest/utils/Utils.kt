@@ -1,8 +1,9 @@
-package com.example.androidtest
+package com.example.androidtest.utils
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.androidtest.R
 
 fun ImageView.loadImage(uri: String?) {
     val options = RequestOptions()

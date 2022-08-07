@@ -1,9 +1,10 @@
-package com.example.androidtest
+package com.example.androidtest.movielist.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.androidtest.movielist.model.Movie
 
 @Database(entities = [Movie::class], version = 1)
 abstract class MovieDatabase : RoomDatabase() {

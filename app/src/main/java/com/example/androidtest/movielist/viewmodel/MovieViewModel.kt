@@ -1,8 +1,8 @@
-package com.example.androidtest
+package com.example.androidtest.movielist.viewmodel
 
 import androidx.lifecycle.*
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import com.example.androidtest.movielist.model.Movie
+import com.example.androidtest.movielist.network.MovieRepository
 import javax.inject.Inject
 
 class MovieViewModel @Inject constructor(

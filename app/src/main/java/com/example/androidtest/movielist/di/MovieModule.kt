@@ -1,6 +1,9 @@
-package com.example.androidtest
+package com.example.androidtest.movielist.di
 
 import android.content.Context
+import com.example.androidtest.movielist.network.MovieAPI
+import com.example.androidtest.movielist.db.MovieDao
+import com.example.androidtest.movielist.db.MovieDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

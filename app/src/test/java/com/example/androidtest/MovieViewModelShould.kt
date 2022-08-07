@@ -1,7 +1,10 @@
 package com.example.androidtest
 
+import com.example.androidtest.movielist.model.Movie
+import com.example.androidtest.movielist.network.MovieRepository
 import com.example.androidtest.utils.BaseUnitTest
 import com.example.androidtest.utils.getValueForTest
+import com.example.androidtest.movielist.viewmodel.MovieViewModel
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify

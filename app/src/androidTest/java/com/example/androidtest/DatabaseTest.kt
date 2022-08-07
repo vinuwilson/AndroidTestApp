@@ -3,6 +3,8 @@ package com.example.androidtest
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
+import com.example.androidtest.movielist.db.MovieDao
+import com.example.androidtest.movielist.db.MovieDatabase
 import com.example.androidtest.utils.BaseUITest
 import com.example.androidtest.utils.provideTestList
 import kotlinx.coroutines.runBlocking

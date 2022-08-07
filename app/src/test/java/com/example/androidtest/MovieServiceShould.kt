@@ -1,5 +1,8 @@
 package com.example.androidtest
 
+import com.example.androidtest.movielist.model.MovieList
+import com.example.androidtest.movielist.network.MovieAPI
+import com.example.androidtest.movielist.network.MovieService
 import com.example.androidtest.utils.BaseUnitTest
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times

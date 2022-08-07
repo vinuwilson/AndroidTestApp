@@ -1,6 +1,6 @@
 package com.example.androidtest.utils
 
-import com.example.androidtest.Movie
+import com.example.androidtest.movielist.model.Movie
 
 fun provideTestList(): List<Movie> {
     val dummyList = arrayListOf<Movie>()

@@ -1,4 +1,4 @@
-package com.example.androidtest
+package com.example.androidtest.movielist.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

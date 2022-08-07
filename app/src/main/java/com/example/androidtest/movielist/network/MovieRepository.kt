@@ -1,5 +1,7 @@
-package com.example.androidtest
+package com.example.androidtest.movielist.network
 
+import com.example.androidtest.movielist.db.MovieDao
+import com.example.androidtest.movielist.model.Movie
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
