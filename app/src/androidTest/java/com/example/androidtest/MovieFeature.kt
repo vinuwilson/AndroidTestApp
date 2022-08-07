@@ -31,6 +31,8 @@ class MovieFeature {
     @Test
     fun displayListOfMovies() {
 
+        Thread.sleep(4000)
+
         assertRecyclerViewItemCount(R.id.movie_list, 25)
 
         onView(

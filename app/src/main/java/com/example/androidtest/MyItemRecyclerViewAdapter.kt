@@ -1,20 +1,14 @@
 package com.example.androidtest
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
-
-import com.example.androidtest.placeholder.PlaceholderContent.PlaceholderItem
+import androidx.recyclerview.widget.RecyclerView
 import com.example.androidtest.databinding.FragmentMovieBinding
 
-/**
- * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- * TODO: Replace the implementation with code for your data type.
- */
 class MyItemRecyclerViewAdapter(
-    private val values: List<PlaceholderItem>
+    private val values: List<Movie>
 ) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,19 +25,19 @@ class MyItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
+        holder.movieImage.loadImage(item.poster)
+        holder.movieTitle.text = item.title
+        holder.movieGenre.text = item.genre
+        holder.movieYear.text = item.year
     }
 
     override fun getItemCount(): Int = values.size
 
     inner class ViewHolder(binding: FragmentMovieBinding) : RecyclerView.ViewHolder(binding.root) {
-        val idView: TextView = binding.itemNumber
-        val contentView: TextView = binding.content
-
-        override fun toString(): String {
-            return super.toString() + " '" + contentView.text + "'"
-        }
+        val movieImage: ImageView = binding.movieImage
+        val movieTitle: TextView = binding.movieTitle
+        val movieGenre: TextView = binding.movieGenre
+        val movieYear: TextView = binding.movieYear
     }
 
 }
