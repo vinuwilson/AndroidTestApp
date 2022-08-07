@@ -12,16 +12,17 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
 
-class MovieRepositoryShould :BaseUnitTest() {
+class MovieRepositoryShould : BaseUnitTest() {
 
-    private var service : MovieService = mock()
+    private var service: MovieService = mock()
     private var movieList = mock<MovieList>()
     private val exception = RuntimeException("Something went wrong")
+    private val movieDao: MovieDao = mock()
 
     @Test
-    fun getMovieListFromService(): Unit = runBlocking{
+    fun getMovieListFromService(): Unit = runBlocking {
 
-        val repository = MovieRepository(service)
+        val repository = MovieRepository(service, movieDao)
 
         repository.getMovieList().first()
 
@@ -51,7 +52,7 @@ class MovieRepositoryShould :BaseUnitTest() {
                 emit(Result.success(movieList))
             }
         )
-        return MovieRepository(service)
+        return MovieRepository(service, movieDao)
     }
 
     private suspend fun mockFailureCase(): MovieRepository {
@@ -61,7 +62,7 @@ class MovieRepositoryShould :BaseUnitTest() {
             }
         )
 
-        return MovieRepository(service)
+        return MovieRepository(service, movieDao)
     }
 
 }
