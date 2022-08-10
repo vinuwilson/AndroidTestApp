@@ -1,8 +1,11 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -79,4 +82,9 @@ dependencies {
     kapt "androidx.room:room-compiler:$room"
     implementation "androidx.room:room-ktx:$room"
     androidTestImplementation "androidx.room:room-testing:$room"
+
+    //Navigation
+    def nav_version = "2.5.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 }

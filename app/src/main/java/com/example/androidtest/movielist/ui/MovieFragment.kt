@@ -15,6 +15,7 @@ import com.example.androidtest.movielist.model.Movie
 import com.example.androidtest.movielist.viewmodel.MovieViewModel
 import com.example.androidtest.movielist.viewmodel.MovieViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_movie_list.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -32,15 +33,26 @@ class MovieFragment : Fragment() {
 
         setupViewModel()
 
-        observeMovieList(view)
+        observeLoading()
+
+        observeMovieList()
 
         return view
     }
 
-    private fun observeMovieList(view: View?) {
+    private fun observeLoading() {
+        viewModel.loader.observe(this as LifecycleOwner) { loading ->
+            when (loading) {
+                true -> loader.visibility = View.VISIBLE
+                else -> loader.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun observeMovieList() {
         viewModel.movieList.observe(this as LifecycleOwner) { movieList ->
             if (movieList.getOrNull() != null)
-                setupList(view, movieList.getOrNull()!!)
+                setupList(requireView().findViewById(R.id.movie_list), movieList.getOrNull()!!)
         }
     }
 

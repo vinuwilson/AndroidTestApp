@@ -6,6 +6,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.adevinta.android.barista.assertion.BaristaRecyclerViewAssertions.assertRecyclerViewItemCount
 import com.adevinta.android.barista.assertion.BaristaVisibilityAssertions.assertDisplayed
+import com.adevinta.android.barista.assertion.BaristaVisibilityAssertions.assertNotDisplayed
 import com.example.androidtest.utils.BaseUITest
 import org.hamcrest.core.AllOf.allOf
 import org.junit.Test
@@ -52,6 +53,16 @@ class MovieFeature : BaseUITest() {
         )
             .check(matches(withText("History")))
             .check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun showProgressbar() {
+        assertDisplayed(R.id.loader)
+    }
+
+    @Test
+    fun hideProgressbar() {
+        assertNotDisplayed(R.id.loader)
     }
 
 }
